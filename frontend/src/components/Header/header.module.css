@@ -1,15 +1,16 @@
 .header{
     background: white;
     padding: 0;
-    border-bottom: 1px solid #e72929;
+    border-bottom: 2px solid #e17e4d83;
+    /* 80D261 */
 }
 
 .header a{
-    color: #af1313;
+    color: #E17E4D;
 }
 
 .header a:hover{
-    background:#e72929;
+    background:#E17E4D;
     color: white;
     cursor: pointer;
 }
@@ -18,13 +19,17 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo{
     font-weight: bold;
     padding:1rem;
 }
-
+.logoImg
+{
+    max-width: 40px;
+}
 .header ul{
     display: flex;
     list-style-type: none;
@@ -56,9 +61,14 @@
 }
 
 .cart_count{
-    background-color: #ff4d4d;
+    background-color: #E17E4D;
     color:white;
     padding: 0.1rem 0.45rem;
     border-radius: 100rem;
     font-size: 0.9rem;
+    margin-left: 8%;
+}
+.header li
+{
+    list-style-type: none;
 }
