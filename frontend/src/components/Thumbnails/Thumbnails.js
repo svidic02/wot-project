@@ -16,7 +16,6 @@ export default function Thumbnails({ foods }) {
               alt={food.name}
               onError={() => console.log("Image failed to load")}
             />
-          </Link>
           <div className={classes.content}>
             <div className={classes.name}>{food.name}</div>
             <span
@@ -26,7 +25,7 @@ export default function Thumbnails({ foods }) {
             >
               ☆
             </span>
-            {/* <div className={classes.stars}>
+            <div className={classes.stars}>
               <StarRating stars={food.stars} />
             </div>
             <div className={classes.product_item_footer}>
@@ -34,11 +33,12 @@ export default function Thumbnails({ foods }) {
                 <span>🕒</span>
                 {food.cookTime}
               </div>
-            </div> */}
+            </div>
             <div className={classes.price}>
               <Price price={food.price} />
             </div>
           </div>
+          </Link>
         </li>
       ))}
     </ul>
