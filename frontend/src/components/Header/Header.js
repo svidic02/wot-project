@@ -1,15 +1,14 @@
 import React from "react";
 import classes from "./header.module.css";
 import { Link } from "react-router-dom";
-// import logo from "./../../../public/foods/burrito.png";
+import { useCart } from "../../Hooks/useCart";
 
 export default function Header() {
   const user = {
     name: "John",
   };
-  const cart = {
-    totalCount: 10,
-  };
+  const {cart} = useCart();
+
   const logout = () => {};
   return (
     <header className={classes.header}>
@@ -18,11 +17,7 @@ export default function Header() {
           Burrito Haven
         </Link>
         <li>
-          <img
-            className={classes.logoImg}
-            src="foods/logo.png"
-            alt="logo"
-          />
+          <img className={classes.logoImg} src="foods/logo.png" alt="logo" />
         </li>
         <nav>
           <ul>
