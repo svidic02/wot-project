@@ -5,10 +5,12 @@ import StarRating from "../StarRating/StarRating";
 import Price from "../Price/Price";
 
 export default function Thumbnails({ foods }) {
+  // console.log("Thumbnails - foods:", foods);
   return (
     <ul className={classes.list}>
-      {foods.map((food) => (
+      {foods.map(food => (
         <li key={food.id}>
+          <title>{foods.map()}</title>
           <Link to={`/food/${food.id}`}>
             <img
               className={classes.image}
