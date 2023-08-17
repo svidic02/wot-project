@@ -5,12 +5,10 @@ import StarRating from "../StarRating/StarRating";
 import Price from "../Price/Price";
 
 export default function Thumbnails({ foods }) {
-  // console.log("Thumbnails - foods:", foods);
   return (
     <ul className={classes.list}>
-      {foods.map(food => (
+      {foods.map((food) => (
         <li key={food.id}>
-          <title>{foods.map()}</title>
           <Link to={`/food/${food.id}`}>
             <img
               className={classes.image}
@@ -18,28 +16,28 @@ export default function Thumbnails({ foods }) {
               alt={food.name}
               onError={() => console.log("Image failed to load")}
             />
-          <div className={classes.content}>
-            <div className={classes.name}>{food.name}</div>
-            <span
-              className={`${classes.favorite} ${
-                food.favorite ? "" : classes.not
-              }`}
-            >
-              ☆
-            </span>
-            <div className={classes.stars}>
-              <StarRating stars={food.stars} />
-            </div>
-            <div className={classes.product_item_footer}>
-              <div className={classes.cook_time}>
-                <span>🕒</span>
-                {food.cookTime}
+            <div className={classes.content}>
+              <div className={classes.name}>{food.name}</div>
+              <span
+                className={`${classes.favorite} ${
+                  food.favorite ? "" : classes.not
+                }`}
+              >
+                ☆
+              </span>
+              <div className={classes.stars}>
+                <StarRating stars={food.stars} />
+              </div>
+              <div className={classes.product_item_footer}>
+                <div className={classes.cook_time}>
+                  <span>🕒</span>
+                  {food.cookTime}
+                </div>
+              </div>
+              <div className={classes.price}>
+                <Price price={food.price} />
               </div>
             </div>
-            <div className={classes.price}>
-              <Price price={food.price} />
-            </div>
-          </div>
           </Link>
         </li>
       ))}
