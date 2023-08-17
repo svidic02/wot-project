@@ -36,7 +36,6 @@ export default function HomePage() {
       dispatch({ type: "FOODS_LOADED", payload: foods })
     );
   }, [searchTerm, tag]);
-
   return (
     <>
       <Search />
