@@ -8,7 +8,6 @@ import NotFound from "../../components/NotFound/NotFound";
 
 export default function CartPage() {
   const { cart, removeFromCart, changeQuantity } = useCart();
-  const state = cart && cart.items.length > 0 ? true : false;
   return (
     <>
       <Title title="Cart Page" margin="1.5rem 0 0 2.5rem" />

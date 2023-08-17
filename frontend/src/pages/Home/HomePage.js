@@ -32,7 +32,7 @@ export default function HomePage() {
       ? search(searchTerm)
       : getAll();
 
-    loadFoods.then((foods) =>
+    loadFoods.then(foods =>
       dispatch({ type: "FOODS_LOADED", payload: foods })
     );
   }, [searchTerm, tag]);
@@ -41,7 +41,7 @@ export default function HomePage() {
     <>
       <Search />
       <Tags tags={tags}/>
-      {foods.length ===0 && <NotFound linkText="Reset search"/>}
+      {foods.length === 0 && <NotFound linkText="Reset Search" />}
       <Thumbnails foods={foods} />
     </>
   );
