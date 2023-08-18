@@ -7,6 +7,7 @@ import Thumbnails from "../../components/Thumbnails/Thumbnails";
 import NotFound from "../../components/NotFound/NotFound";
 
 const initialState = { foods: [] , tags: [] };
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FOODS_LOADED":
@@ -36,11 +37,13 @@ export default function HomePage() {
       dispatch({ type: "FOODS_LOADED", payload: foods })
     );
   }, [searchTerm, tag]);
+
   return (
     <>
       <Search />
       <Tags tags={tags}/>
       {foods.length === 0 && <NotFound linkText="Reset Search" />}
+      {/* <p>{Array.isArray(foods) ? "Is":"Isnt"}</p> */}
       <Thumbnails foods={foods} />
     </>
   );

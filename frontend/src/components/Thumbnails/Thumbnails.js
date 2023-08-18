@@ -3,8 +3,10 @@ import classes from "./thumbnails.module.css";
 import { Link } from "react-router-dom";
 import StarRating from "../StarRating/StarRating";
 import Price from "../Price/Price";
+import PropTypes from 'prop-types';
 
 export default function Thumbnails({ foods }) {
+
   return (
     <ul className={classes.list}>
       {foods.map((food) => (
@@ -44,3 +46,7 @@ export default function Thumbnails({ foods }) {
     </ul>
   );
 }
+
+Thumbnails.propTypes = {
+  foods: PropTypes.array.isRequired,
+};

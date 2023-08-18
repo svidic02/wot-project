@@ -9,7 +9,7 @@ export const getAllTags = async () => {
   return data;
 };
 export const search = async (searchTerm) => {
-  const { data } = await axios.get("api/foods/search" + searchTerm);
+  const { data } = await axios.get("api/foods/search/" + searchTerm);
   return data;
 };
 export const getAllByTag = async (tag) => {
@@ -17,7 +17,6 @@ export const getAllByTag = async (tag) => {
   const { data } = await axios.get("api/foods/tag/" + tag);
   return data;
 };
-
 export const getById = async (foodId) => {
   const { data } = await axios.get("api/foods/" + foodId);
   return data;
