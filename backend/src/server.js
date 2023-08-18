@@ -11,13 +11,9 @@ const corsOptions ={
 }
 app.use(cors(corsOptions));
 
-app.use("/api/foods", foodRouter);
-
-app.get("/", (req, res) => {
-  res.json({ mssg: "Welcome to the app" });
-});
-
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log("listening on port " + PORT);
 });
+
+app.use("/api/foods", foodRouter);

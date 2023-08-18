@@ -14,7 +14,7 @@ router.get('/tags', (req, res) => {
 router.get('/search/:searchTerm', (req, res) => {
   const { searchTerm } = req.params;
   const foods = sample_foods.filter(item =>
-    item.name.toLocaleLowerCase().includes(searchTerm.toLowerCase())
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   res.send(foods);
 });
