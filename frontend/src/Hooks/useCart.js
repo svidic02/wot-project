@@ -54,7 +54,7 @@ export default function CartProvider({ children }) {
 
     setCartItems(
       cartItems.map((item) =>
-        item.food.id == food.id ? changedCartItem : item
+        item.food.id === food.id ? changedCartItem : item
       )
     );
   };

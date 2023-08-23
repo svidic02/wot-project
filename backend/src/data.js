@@ -1,6 +1,5 @@
 export const sample_foods = [
   {
-    id: "1",
     name: "Chuckle-Chicken Chimichanga",
     cookTime: "10-20",
     price: 5,
@@ -10,7 +9,6 @@ export const sample_foods = [
     tags: ["Kids", "Breakfast", "FastFood"],
   },
   {
-    id: "2",
     name: "Shrimp and Rice Burrito",
     cookTime: "10-20",
     price: 5,
@@ -20,7 +18,6 @@ export const sample_foods = [
     tags: ["Kids", "Breakfast", "FastFood"],
   },
   {
-    id: "3",
     name: "Vegetarian Black Bean Burrito",
     cookTime: "10-20",
     price: 5,
@@ -30,7 +27,6 @@ export const sample_foods = [
     tags: ["Kids", "Breakfast", "Fry"],
   },
   {
-    id: "4",
     name: "Bean and Cheese Burrito",
     cookTime: "10-20",
     price: 5,
@@ -40,7 +36,6 @@ export const sample_foods = [
     tags: ["Kids", "Breakfast", "FastFood"],
   },
   {
-    id: "5",
     name: "Gluten-free Burrito",
     cookTime: "10-20",
     price: 5,
@@ -60,4 +55,21 @@ export const sample_tags = [
   { name: "Hamburger", count: 1 },
   { name: "Fry", count: 1 },
   { name: "Soup", count: 1 },
+];
+
+export const sample_users = [
+  {
+    name: 'John Doe',
+    email: 'john@gmail.com',
+    password: '12345',
+    address: 'Toronto On',
+    isAdmin: false,
+  },
+  {
+    name: 'Jane Doe',
+    email: 'jane@gmail.com',
+    password: '12345',
+    address: 'Shanghai',
+    isAdmin: true,
+  },
 ];
