@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
 import CartProvider from "./hooks/useCart";
-import "./axiosConfig";
 import { AuthProvider } from "./hooks/useAuth";
+import { BrowserRouter } from "react-router-dom";
+import { LoadingProvider } from "./hooks/useLoading";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { LoadingProvider } from "./hooks/useLoading";
+import "./index.css";
+import "./axiosConfig";
+import "./interceptors/authInterceptor";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

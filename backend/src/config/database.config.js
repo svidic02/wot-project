@@ -34,7 +34,7 @@ async function seedUsers() {
     user.password = await bcrypt.hash(user.password, PASSWORD_HASH_SALT_ROUNDS);
     await UserModel.create(user);
   }
-  conosle.log("User seed is done!");
+  console.log("User seed is done!");
 }
 
 async function seedFoods() {
