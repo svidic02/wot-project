@@ -12,7 +12,6 @@ import "./index.css";
 import "./axiosConfig";
 import "./interceptors/authInterceptor";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -23,7 +22,7 @@ root.render(
             <App />
             <ToastContainer
               position="bottom-right"
-              autoClose={5000}
+              autoClose={2000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick

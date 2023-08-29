@@ -6,7 +6,8 @@ import CartPage from "./pages/Cart/CartPage";
 import LoginPage from "./pages/Login/LoginPage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import AuthRoute from "./components/AuthRoute/AuthRoute";
-import Checkout from "./components/Checkout/CheckoutPage";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
+import PaymentPage from "./pages/Payment/PaymentPage"
 
 export default function AppRoutes() {
   return (
@@ -22,10 +23,18 @@ export default function AppRoutes() {
         path="/checkout"
         element={
           <AuthRoute>
-            <Checkout />
+            <CheckoutPage />
           </AuthRoute>
         }
-      ></Route>
+      />
+      <Route
+        path="/payment"
+        element={
+          <AuthRoute>
+            <PaymentPage />
+          </AuthRoute>
+        }
+      />
     </Routes>
   );
 }

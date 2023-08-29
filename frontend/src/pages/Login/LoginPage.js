@@ -6,6 +6,7 @@ import classes from "./loginPage.module.css";
 import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import { useCart } from "../../hooks/useCart";
 
 export default function LoginPage() {
   const {
@@ -15,6 +16,7 @@ export default function LoginPage() {
   } = useForm();
 
   const navigate = useNavigate();
+  const {clearCart}=useCart();
   const { user, login } = useAuth();
   const [params] = useSearchParams();
   const returnUrl = params.get("returnUrl");
@@ -22,6 +24,7 @@ export default function LoginPage() {
   useEffect(() => {
     if (!user) return;
     returnUrl ? navigate(returnUrl) : navigate("/");
+    clearCart();
   }, [user]);
 
   const submit = async ({ email, password }) => {
