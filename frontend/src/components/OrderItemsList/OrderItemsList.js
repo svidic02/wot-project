@@ -1,9 +1,9 @@
 import React from "react";
-import classes from "./orderItemsList.module.css";
 import { Link } from "react-router-dom";
 import Price from "../Price/Price";
+import classes from "./orderItemsList.module.css";
 
-export default function OrderItemsList({order}) {
+export default function OrderItemsList({ order }) {
   return (
     <table className={classes.table}>
       <tbody>
@@ -12,7 +12,7 @@ export default function OrderItemsList({order}) {
             <h3>Order Items:</h3>
           </td>
         </tr>
-        {order.items.map((item) => (
+        {(order) ? (order.items.map((item) => (
           <tr key={item.food.id}>
             <td>
               <Link to={`/food/${item.food.id}`}>
@@ -28,7 +28,7 @@ export default function OrderItemsList({order}) {
               <Price price={item.price} />
             </td>
           </tr>
-        ))}
+        ))): <h1>Order not avilable</h1>}
 
         <tr>
           <td colSpan="3"></td>

@@ -20,11 +20,14 @@ export default function CartProvider({ children }) {
     setTotalPrice(totalPrice);
     setTotalCount(totalCount);
 
-    localStorage.setItem(CART_KEY,JSON.stringify({
-      items:cartItems,
-      totalPrice,
-      totalCount,
-    }))
+    localStorage.setItem(
+      CART_KEY,
+      JSON.stringify({
+        items: cartItems,
+        totalPrice,
+        totalCount,
+      })
+    );
   }, [cartItems]);
 
   function getCartFromLocalStorage() {
@@ -68,6 +71,14 @@ export default function CartProvider({ children }) {
     }
   };
 
+  const clearCart = () => {
+    localStorage.removeItem(CART_KEY);
+    const { items, totalPrice, totalCount } = EMPTY_CART;
+    setCartItems(items);
+    setTotalCount(totalCount);
+    setTotalPrice(totalPrice);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -75,6 +86,7 @@ export default function CartProvider({ children }) {
         removeFromCart,
         changeQuantity,
         addToCart,
+        clearCart
       }}
     >
       {children}

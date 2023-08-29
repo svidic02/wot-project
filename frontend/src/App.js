@@ -9,7 +9,7 @@ function App() {
   const { showLoading, hideLoading } = useLoading();
   useEffect(() => {
     setLoadingInterceptor({ showLoading, hideLoading });
-  },[]);
+  },[hideLoading,showLoading]);
   return (
     <>
       <Loading />
