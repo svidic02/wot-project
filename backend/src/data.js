@@ -72,4 +72,18 @@ export const sample_users = [
     address: 'Shanghai',
     isAdmin: true,
   },
+  {
+    name: 'James Doe',
+    email: 'james@gmail.com',
+    password: '12345',
+    address: 'Tokyo',
+    isAdmin: true,
+  },
+  {
+    name: 'Loan Doe',
+    email: 'loan@gmail.com',
+    password: '12345',
+    address: 'Los Angeles',
+    isAdmin: true,
+  },
 ];

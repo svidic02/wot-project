@@ -30,3 +30,8 @@ export const pay = async (paymentId) => {
     return data;
   } catch (error) {}
 };
+
+export const getAllOrders = async () => {
+  const { data } = await axios.get("/api/orders");
+  return data;
+};

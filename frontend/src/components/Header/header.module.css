@@ -1,74 +1,92 @@
-.header{
-    background: white;
-    padding: 0;
-    border-bottom: 2px solid #e17e4d83;
-    /* 80D261 */
+.header {
+  background: white;
+  padding: 0;
+  border-bottom: 2px solid #e17e4d83;
+  /* 80D261 */
 }
 
-.header a{
-    color: #E17E4D;
+.header a {
+  color: #e17e4d;
+  transition: all 0.3s ease-in;
 }
 
-.header a:hover{
-    background:#E17E4D;
-    color: white;
-    cursor: pointer;
+.header a:hover {
+  background: #e17e4d;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.container{
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo{
-    font-weight: bold;
-    padding:1rem;
-}
-.logoImg
-{
-    max-width: 40px;
-}
-.header ul{
-    display: flex;
-    list-style-type: none;
-    margin:0;
+.container div {
+  height: 100%;
 }
 
-.header ul a{
-    padding: 1rem;
-    display: inline-block;
+.title {
+  font-weight: bold;
+  padding: 1rem;
+}
+.titleWrapper {
 }
 
-.menu_container{
-    position: relative;
+.logoImg {
+  max-width: 40px;
+  margin-right: 0px;
 }
-.menu{
-    position: absolute;
-    z-index: 1;
-    background-color: whitesmoke;
-    display: none;
+.imgWrapper {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  width: 30%;
+}
+.optionsWrapper {
+  display: flex-end;
+}
+.header ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
 }
 
-.menu_container:hover .menu{
-    display: block;
+.header ul a {
+  padding: 1rem;
+  display: inline-block;
 }
 
-.menu a{
-    width: 100%;
-    min-width: 8rem;
+.menu_container {
+  position: relative;
+}
+.menu {
+  position: absolute;
+  z-index: 1;
+  background-color: whitesmoke;
+  display: none;
 }
 
-.cart_count{
-    background-color: #E17E4D;
-    color:white;
-    padding: 0.1rem 0.45rem;
-    border-radius: 100rem;
-    font-size: 0.9rem;
-    margin-left: 8%;
+.menu_container:hover .menu {
+  display: block;
 }
-.header li
-{
-    list-style-type: none;
+
+.menu a {
+  width: 100%;
+  min-width: 8rem;
+}
+
+.cart_count {
+  background-color: #e17e4d;
+  color: white;
+  padding: 0.1rem 0.45rem;
+  border-radius: 100rem;
+  font-size: 0.9rem;
+  margin-left: 8%;
+}
+.header li {
+  list-style-type: none;
+  transition: all 0.1s;
 }

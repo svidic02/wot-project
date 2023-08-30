@@ -22,15 +22,15 @@ root.render(
             <App />
             <ToastContainer
               position="bottom-right"
-              autoClose={2000}
-              hideProgressBar={false}
+              autoClose={1000}
+              hideProgressBar={true}
               newestOnTop={false}
               closeOnClick
               rtl={false}
               pauseOnFocusLoss
               draggable
               pauseOnHover
-              theme="light"
+              theme="dark"
             />
           </CartProvider>
         </AuthProvider>
