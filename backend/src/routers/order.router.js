@@ -4,13 +4,13 @@ import auth from "../middleware/auth.mid.js";
 import { BAD_REQUEST } from "../constants/httpStatus.js";
 import { OrderModel } from "../models/order.model.js";
 import { OrderStatus } from "../constants/orderStatus.js";
-import { UserModel } from "../models/user.model.js";
 
 const router = Router();
-router.use(auth);
+// router.use(auth);
 
 router.post(
   "/create",
+  auth,
   handler(async (req, res) => {
     const order = req.body;
     const items = order.items;
@@ -41,6 +41,7 @@ router.post(
 
 router.put(
   "/pay",
+  auth,
   handler(async (req, res) => {
     const { paymentId } = req.body;
     const order = await getNewOrderForCurrentUser(req);
@@ -59,6 +60,7 @@ router.put(
 
 router.get(
   "/newOrderForCurrentUser",
+  auth,
   handler(async (req, res) => {
     const order = await getNewOrderForCurrentUser(req);
     if (order) res.send(order);
@@ -66,6 +68,14 @@ router.get(
       res.send("This is order" + JSON.stringify(order));
       res.status(BAD_REQUEST).send();
     }
+  })
+);
+
+router.get(
+  "/",
+  handler(async (req, res) => {
+    const orders = await OrderModel.find();
+    res.send(orders);
   })
 );
 

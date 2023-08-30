@@ -9,6 +9,10 @@ import AuthRoute from "./components/AuthRoute/AuthRoute";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PaymentPage from "./pages/Payment/PaymentPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
+import UsersPage from "./pages/Users/UsersPage";
+import TagsPage from "./pages/Tags/TagsPage";
+import MealsPage from "./pages/Meals/MealsPage";
+import OrdersPage from "./pages/Orders/OrdersPage";
 
 export default function AppRoutes() {
   return (
@@ -21,6 +25,11 @@ export default function AppRoutes() {
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/register" element={<RegisterPage />}></Route>
       <Route path="/profile" element={<ProfilePage />}></Route>
+      <Route path="/users" element={<UsersPage />}></Route>
+      <Route path="/tags" element={<TagsPage />}></Route>
+      <Route path="/meals" element={<MealsPage />}></Route>
+      <Route path="/orders" element={<OrdersPage />}></Route>
+      
       <Route
         path="/checkout"
         element={

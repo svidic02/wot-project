@@ -53,6 +53,14 @@ router.post(
   })
 );
 
+router.get(
+  "/",
+  handler(async (req, res) => {
+    const users = await UserModel.find()
+    res.send(users);
+  })
+);
+
 const generateTokenResponse = (user) => {
   const token = JWT.sign(
     {
