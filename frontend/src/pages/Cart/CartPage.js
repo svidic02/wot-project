@@ -2,12 +2,14 @@ import React from "react";
 import classes from "./cartPage.module.css";
 import { useCart } from "../../hooks/useCart";
 import Title from "../../components/Title/Title";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Price from "../../components/Price/Price";
 import NotFound from "../../components/NotFound/NotFound";
+import { toast } from "react-toastify";
 
 export default function CartPage() {
-  const { cart, removeFromCart, changeQuantity } = useCart();
+  const { cart, removeFromCart, changeQuantity, clearCart } = useCart();
+  const navigate = useNavigate();
   return (
     <>
       <Title title="Cart Page" margin="1.5rem 0 0 2.5rem" />
@@ -19,10 +21,7 @@ export default function CartPage() {
             {cart.items.map((item) => (
               <li key={item.food.id}>
                 <div>
-                  <img
-                    src={`${item.food.imageUrl}`}
-                    alt={item.food.name}
-                  />
+                  <img src={`${item.food.imageUrl}`} alt={item.food.name} />
                 </div>
                 <div>
                   <Link to={`/food/${item.food.id}`}>{item.food.name}</Link>
@@ -67,6 +66,15 @@ export default function CartPage() {
                 <Price price={cart.totalPrice} />
               </div>
             </div>
+            <btn
+              className={classes.clearCart}
+              onClick={() => {
+                clearCart();
+                navigate("/");
+              }}
+            >
+              Clear cart
+            </btn>
             <Link to="/checkout">Procced to checkout</Link>
           </div>
         </div>

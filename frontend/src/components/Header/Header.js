@@ -1,49 +1,83 @@
 import React from "react";
 import classes from "./header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function Header() {
-  const {user,logout} = useAuth();
+  const { user, logout } = useAuth();
   const { cart } = useCart();
+  const navigate = useNavigate();
+
+  const isAdmin = (user) => {
+    return user && user.isAdmin === "true";
+  };
 
   return (
     <header className={classes.header}>
       <div className={classes.container}>
         <Link to="/" className={classes.logo}>
-          Burrito Haven
+          PurePlate Bistro
         </Link>
         <li>
           <img
             className={classes.logoImg}
-            src="foods/logo.png"
+            src="basics/logo.png"
             alt="logo"
             onError={() => console.log("Image failed to load")}
           />
         </li>
         <nav>
           <ul>
-            {user ? (
-              <li className={classes.menu_container}>
-                <Link to="/profile">{user.name}</Link>
-                <div className={classes.menu}>
-                  <Link to="/profile">Profile</Link>
-                  <Link to="/orders">Orders</Link>
+            {isAdmin(user) ? (
+              <>
+                <li>
+                  <Link to={"/users"}>Users</Link>
+                </li>
+                <li>
+                  <Link to={"/meals"}>Meals</Link>
+                </li>
+                <li>
+                  <Link to={"/tags"}>Tags</Link>
+                </li>
+                <li className={classes.menu_container}>
+                  <Link to="/profile">{user.name}</Link>
+                  {/* <div className={classes.menu}>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/orders">Orders</Link>
+                  </div> */}
+                </li>
+                <li>
                   <a onClick={logout}>Logout</a>
-                </div>
-              </li>
+                </li>
+              </>
+            ) : user ? (
+              <>
+                <li className={classes.menu_container}>
+                  <Link to="/profile">{user.name}</Link>
+                  <div className={classes.menu}>
+                    <Link to="/profile">Profile</Link>
+                    <a onClick={logout}>Logout</a>
+                  </div>
+                </li>
+                <li>
+                  <Link to="/cart">
+                    Cart
+                    {cart.totalCount > 0 && (
+                      <span className={classes.cart_count}>
+                        {cart.totalCount}
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              </>
             ) : (
-              <Link to="/login">Login</Link>
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
             )}
-            <li>
-              <Link to="/cart">
-                Cart
-                {cart.totalCount > 0 && (
-                  <span className={classes.cart_count}>{cart.totalCount}</span>
-                )}
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>
