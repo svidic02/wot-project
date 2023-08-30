@@ -4,9 +4,11 @@ import { getNewOrderForCurrentUser } from "../../services/orderService";
 import Title from "../../components/Title/Title";
 import OrderItemsList from "../../components/OrderItemsList/OrderItemsList";
 import PayPalButtons from "../../components/PayPalButtons/PayPalButtons";
+import { useLoading } from "../../hooks/useLoading";
 
 export default function PaymentPage() {
   const [order, setOrder] = useState();
+  const { showLoading, hideLoading } = useLoading();
 
   useEffect(() => {
     getNewOrderForCurrentUser().then((data) => setOrder(data));
@@ -29,7 +31,11 @@ export default function PaymentPage() {
               <span>{order.address}</span>
             </div>
           </div>
-          <OrderItemsList order={order} />
+          {order != undefined ? (
+            <OrderItemsList order={order} />
+          ) : (
+            showLoading()
+          )}
         </div>
 
         {/* <div className={classes.buttons_container}>
