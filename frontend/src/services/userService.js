@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const getUser = () =>
   localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
@@ -24,5 +23,25 @@ export const logout = () => {
 
 export const getAllUsers = async () => {
   const { data } = await axios.get("api/users");
+  return data;
+};
+
+export const editUser = async (id) => {
+  const { data } = await axios.post(`api/users/user/${id}`);
+  return data;
+};
+
+export const deleteUser = async (user) => {
+  // const { data } = await axios.delete("api/users/user/:id", user);
+  // return data;
+};
+
+export const addUser = async (user) => {
+  // const { data } = await axios.post("", user);
+  // return data;
+};
+
+export const getUserById = async (id) => {
+  const { data } = await axios.get(`api/users/user/${id}`);
   return data;
 };

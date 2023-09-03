@@ -4,9 +4,18 @@ import { BAD_REQUEST } from "../constants/httpStatus.js";
 import handler from "express-async-handler";
 import { UserModel } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
 
 const router = Router();
 const PASSWORD_HASH_SALT_ROUNDS = 10;
+
+router.get(
+  "/",
+  handler(async (req, res) => {
+    const users = await UserModel.find();
+    res.send(users);
+  })
+);
 
 router.post(
   "/login",
@@ -21,7 +30,7 @@ router.post(
 
     res.status(BAD_REQUEST).send("Username or password is invalid.");
   })
-);
+); //login
 
 router.post(
   "/register",
@@ -51,13 +60,30 @@ router.post(
 
     res.send(generateTokenResponse(result));
   })
-);
+); //register
 
 router.get(
-  "/",
+  "/user/:id",
   handler(async (req, res) => {
-    const users = await UserModel.find()
-    res.send(users);
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).send("Invalid user ID");
+    }
+    const user = await UserModel.findById(id);
+    res.send(user);
+  })
+); //getUserById
+
+router.post(
+  "/user/:id",
+  handler(async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).send("Invalid user ID");
+    }
+    const user = await UserModel.findByIdAndUpdate(id, updatedUser, {
+      new: true,
+    });
   })
 );
 
