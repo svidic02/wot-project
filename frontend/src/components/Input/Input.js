@@ -1,9 +1,19 @@
 import React from "react";
 import classes from "./input.module.css";
-import InputContainer from '../InputContainer/InputContainer';
+import InputContainer from "../InputContainer/InputContainer";
 
 function Input(
-  { label, type, defaultValue, onChange, onBlur, name, error },
+  {
+    label,
+    type,
+    defaultValue,
+    onChange,
+    onBlur,
+    name,
+    error,
+    readOnly,
+    defaultChecked,
+  },
   ref
 ) {
   const getErrorMessage = () => {
@@ -11,12 +21,12 @@ function Input(
     if (error.message) return error.message;
     //defaults
     switch (error.type) {
-      case 'required':
-        return 'This Field Is Required';
-      case 'minLength':
-        return 'Field Is Too Short';
+      case "required":
+        return "This Field Is Required";
+      case "minLength":
+        return "Field Is Too Short";
       default:
-        return '*';
+        return "*";
     }
   };
 
@@ -31,6 +41,8 @@ function Input(
         name={name}
         onChange={onChange}
         onBlur={onBlur}
+        readOnly={readOnly}
+        defaultChecked={defaultChecked}
       />
       {error && <div className={classes.error}>{getErrorMessage()}</div>}
     </InputContainer>

@@ -74,16 +74,39 @@ router.get(
   })
 ); //getUserById
 
-router.post(
+router.put(
   "/user/:id",
   handler(async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).send("Invalid user ID");
     }
-    const user = await UserModel.findByIdAndUpdate(id, updatedUser, {
+
+    const data = req.body; //checked-works
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    const address = data.address;
+    const isAdmin = data.isAdmin;
+
+    const updatedUser = {
+      name,
+      email,
+      password,
+      address,
+      isAdmin,
+    };
+
+    const user = await UserModel.findByIdAndUpdate({ _id: id }, updatedUser, {
       new: true,
     });
+
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    res.send(generateTokenResponse(user));
   })
 );
 

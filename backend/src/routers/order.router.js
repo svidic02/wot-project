@@ -6,7 +6,6 @@ import { OrderModel } from "../models/order.model.js";
 import { OrderStatus } from "../constants/orderStatus.js";
 
 const router = Router();
-// router.use(auth);
 
 router.post(
   "/create",

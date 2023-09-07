@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "../Title/Title";
-import classes from "./orderList.module.css";
+import classes from "./ordersList.module.css";
 
 export default function OrderList({ orders }) {
   return (
@@ -11,7 +11,7 @@ export default function OrderList({ orders }) {
         <div key={order._id} className={classes.item}>
           <p>Name: {order.name}</p>
           <p>Address: {order.address}</p>
-          <p>Total Price: ${order.totalPrice}</p>
+          <p>Total Price: {order.totalPrice}$</p>
           <p>State: {statusToTxt(order.status)}</p>
         </div>
       ))}

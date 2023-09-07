@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { getAllTags } from "../../services/foodService";
-import TagsMealsList from "../../components/TagsMealsList/TagsMealsList";
+import { getAllTags } from "../../../services/foodService";
+import TagsMealsList from "../../../components/TagsMealsList/TagsMealsList";
 
 export default function TagsPage() {
   const { user } = useAuth();

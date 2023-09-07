@@ -36,8 +36,17 @@ export const AuthProvider = ({ children }) => {
     navigate("/");
   };
 
+  const edit = async (user) => {
+    try {
+      await userService.editUser(user);
+    } catch (err) {
+      console.error(err);
+      toast.error("Error editing user in authHook.");
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
+    <AuthContext.Provider value={{ user, login, logout, register, edit }}>
       {children}
     </AuthContext.Provider>
   );

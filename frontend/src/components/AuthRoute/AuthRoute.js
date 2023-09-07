@@ -4,6 +4,8 @@ import { useAuth } from '../../hooks/useAuth';
 export default function AuthRoute({ children }) {
   const location = useLocation();
   const { user } = useAuth();
+
+  
   return user ? (
     children
   ) : (
