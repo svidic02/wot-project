@@ -26,18 +26,17 @@ export const getAllUsers = async () => {
   return data;
 };
 
-export const editUser = async (id) => {
-  const { data } = await axios.post(`api/users/user/${id}`);
-  return data;
+export const editUser = async (userData) => {
+  try {
+    const { data } = await axios.put(`api/users/user/${userData.id}`, userData);
+    return data;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const deleteUser = async (user) => {
   // const { data } = await axios.delete("api/users/user/:id", user);
-  // return data;
-};
-
-export const addUser = async (user) => {
-  // const { data } = await axios.post("", user);
   // return data;
 };
 

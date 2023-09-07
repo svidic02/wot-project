@@ -9,10 +9,12 @@ import AuthRoute from "./components/AuthRoute/AuthRoute";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import PaymentPage from "./pages/Payment/PaymentPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
-import UsersPage from "./pages/Users/UsersPage";
-import TagsPage from "./pages/Tags/TagsPage";
-import MealsPage from "./pages/Meals/MealsPage";
-import OrdersPage from "./pages/Orders/OrdersPage";
+import UsersPage from "./pages/Admin/Users/UsersPage";
+import TagsPage from "./pages/Admin/Tags/TagsPage";
+import MealsPage from "./pages/Admin/Meals/MealsPage";
+import OrdersPage from "./pages/Admin/Orders/OrdersPage";
+import AdminRoute from "./components/AdminRoute/AdminRoute";
+import UserInfo from "./pages/Admin/UserInfo/UserInfo";
 
 export default function AppRoutes() {
   return (
@@ -25,11 +27,47 @@ export default function AppRoutes() {
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/register" element={<RegisterPage />}></Route>
       <Route path="/profile" element={<ProfilePage />}></Route>
-      <Route path="/users" element={<UsersPage />}></Route>
-      <Route path="/tags" element={<TagsPage />}></Route>
-      <Route path="/meals" element={<MealsPage />}></Route>
-      <Route path="/orders" element={<OrdersPage />}></Route>
-      
+
+      <Route
+        path="/users"
+        element={
+          <AdminRoute>
+            <UsersPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/tags"
+        element={
+          <AdminRoute>
+            <TagsPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/meals"
+        element={
+          <AdminRoute>
+            <MealsPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/orders"
+        element={
+          <AdminRoute>
+            <OrdersPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/user/:id"
+        element={
+          <AdminRoute>
+            <UserInfo shouldEdit={true} />
+          </AdminRoute>
+        }
+      />
       <Route
         path="/checkout"
         element={

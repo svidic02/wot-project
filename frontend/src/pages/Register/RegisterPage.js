@@ -1,5 +1,5 @@
 import { useEffect, React } from "react";
-import classes from "./registePage.module.css";
+import classes from "./registerPage.module.css";
 import { useForm } from "react-hook-form";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
@@ -17,8 +17,7 @@ export default function RegisterPage() {
   useEffect(() => {
     if (!user) return;
     returnUrl ? navigate(returnUrl) : navigate("/");
-  },[user]);
-
+  }, [user]);
 
   const {
     handleSubmit,
@@ -27,7 +26,7 @@ export default function RegisterPage() {
     formState: { errors },
   } = useForm();
 
-  const submit = async data => {
+  const submit = async (data) => {
     await auth.register(data);
   };
 
