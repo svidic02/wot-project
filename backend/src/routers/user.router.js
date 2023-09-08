@@ -101,12 +101,28 @@ router.put(
       new: true,
     });
 
-
     if (!user) {
       return res.status(404).send("User not found");
     }
 
     res.send(generateTokenResponse(user));
+  })
+);
+
+router.delete(
+  "/user/:id",
+  handler(async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).send("Invalid user ID");
+    }
+
+    const result = await UserModel.findByIdAndDelete(id);
+    if (!result) {
+      return res.status(400).send("User couldnt be deleted!");
+    }
+    
+    res.send(result);
   })
 );
 
