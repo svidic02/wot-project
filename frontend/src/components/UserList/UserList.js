@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./userList.module.css";
 import Title from "../Title/Title";
 import Button from "../Button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ConfirmationDialog from "../ConfirmationDialog/ConfirmationDialog";
+import { deleteUser } from "../../services/userService";
+import { toast } from "react-toastify";
 
 export default function UserList({ users }) {
   const navigate = useNavigate();
+  const [userToDelete, setUserToDelete] = useState(null);
+  const [showDialog, setDialog] = useState(false);
 
-  const handleDelete = () => {
-    
+  const handleDelete = (user) => {
+    setUserToDelete(user);
+    setDialog(true);
   };
+
+  const dialogConfirmed = async () => {
+    try {
+      await deleteUser(userToDelete._id);
+      setDialog(false);
+      window.location.reload();
+      toast.success(
+        "User with id:" + userToDelete._id + " deleted succesfuly!"
+      );
+    } catch (error) {
+      toast.error("User with id:" + userToDelete._id + " couldnt be deleted!");
+    }
+  };
+  const dialogCanceled = () => {
+    setDialog(false);
+  };
+
   const handleEdit = (user) => {
     navigate(`/user/${user._id}`);
   };
@@ -18,11 +41,6 @@ export default function UserList({ users }) {
     <div className={classes.wrapper}>
       <div className={classes.headerWrapper}>
         <Title title="Users" className={classes.title} />
-        {/* <Button
-          className={classes.button}
-          text="Add users"
-          onClick={() => handleAdd()}
-        /> */}
       </div>
       <div className={classes.itemsWrapper}>
         {users.map((user) => (
@@ -35,13 +53,21 @@ export default function UserList({ users }) {
             <Button text="Edit" onClick={() => handleEdit(user)} />
             <Button
               backgroundColor="red"
-              color='black'
+              color="black"
               text="Delete"
               onClick={() => handleDelete(user)}
             />
           </div>
         ))}
       </div>
+      {showDialog && (
+        <ConfirmationDialog
+          msg="Are you sure you want to delete user?"
+          info={userToDelete}
+          onConfirm={() => dialogConfirmed()}
+          onCancel={() => dialogCanceled()}
+        />
+      )}
     </div>
   );
 }

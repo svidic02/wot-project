@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       await userService.editUser(user);
     } catch (err) {
       console.error(err);
-      toast.error("Error editing user in authHook.");
+      toast.error("Error editing user!");
     }
   };
 
