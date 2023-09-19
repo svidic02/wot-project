@@ -15,6 +15,7 @@ import MealsPage from "./pages/Admin/Meals/MealsPage";
 import OrdersPage from "./pages/Admin/Orders/OrdersPage";
 import AdminRoute from "./components/AdminRoute/AdminRoute";
 import UserInfo from "./pages/Admin/UserInfo/UserInfo";
+import MealInfo from "./pages/Admin/MealInfo/MealInfo";
 
 export default function AppRoutes() {
   return (
@@ -64,10 +65,34 @@ export default function AppRoutes() {
         path="/user/:id"
         element={
           <AdminRoute>
-            <UserInfo shouldEdit={true} />
+            <UserInfo />
           </AdminRoute>
         }
       />
+      <Route
+        path="/meals/:id"
+        element={
+          <AdminRoute>
+            <MealInfo add={false} />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/addMeal"
+        element={
+          <AdminRoute>
+            <MealInfo add={true}/>
+          </AdminRoute>
+        }
+      />
+      {/* <Route
+        path="/tags/:id"
+        element={
+          <AdminRoute>
+            <MealInfo />
+          </AdminRoute>
+        }
+      /> */}
       <Route
         path="/checkout"
         element={

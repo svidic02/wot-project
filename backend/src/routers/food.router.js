@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { FoodModel } from "../models/food.model.js";
 import handler from "express-async-handler";
+import mongoose from "mongoose";
 
 const router = Router();
 
@@ -56,6 +57,75 @@ router.get(
     const { foodId } = req.params;
     const food = await FoodModel.findById(foodId);
     res.send(food);
+  })
+);
+
+router.put(
+  "/:foodId",
+  handler(async (req, res) => {
+    const { foodId } = req.params;
+    const data = req.body;
+    const name = data.name;
+    const price = data.price;
+    const tags = data.tags;
+    const time = data.cookTime;
+    // res.send(name);
+
+    const updatedMeal = {
+      name,
+      price,
+      tags,
+      time,
+    };
+
+    const meal = await FoodModel.findByIdAndUpdate(
+      { _id: foodId },
+      updatedMeal,
+      {
+        new: true,
+      }
+    );
+
+    if (!meal) {
+      return res.status(404).send("Meal not found");
+    }
+
+    res.send(meal);
+  })
+);
+
+router.delete(
+  "/:foodId",
+  handler(async (req, res) => {
+    const { foodId } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(foodId)) {
+      return res.status(400).send("Invalid food ID");
+    }
+    const result = await FoodModel.findByIdAndDelete(foodId);
+    if (!result) {
+      return res.status(400).send("User couldnt be deleted!");
+    }
+
+    res.send(result);
+  })
+);
+
+router.post(
+  "/addFood",
+  handler(async (req, res) => {
+    const { name, price, tags, cookTime, imageUrl } = req.body;
+
+    const newMeal = {
+      name,
+      cookTime,
+      price,
+      imageUrl,
+      tags,
+    };
+
+    const result = await FoodModel.create(newMeal);
+
+    res.send(result);
   })
 );
 
