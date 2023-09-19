@@ -45,9 +45,9 @@ export default function FoodPage() {
                 ❤
               </span> */}
             </div>
-            <div className={classes.rating}>
+            {/* <div className={classes.rating}>
               <StarRating stars={food.stars} size={25} />
-            </div>
+            </div> */}
 
             <div className={classes.origins}>
               {food.origins?.map((origin) => (

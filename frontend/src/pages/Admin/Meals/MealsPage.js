@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { getAll } from "../../../services/foodService";
-import TagsMealsList from "../../../components/TagsMealsList/TagsMealsList";
+import MealsList from "../../../components/MealsList/MealsList";
 
 export default function MealsPage() {
   const { user } = useAuth();
@@ -25,7 +25,7 @@ export default function MealsPage() {
 
   return (
     <>
-      <TagsMealsList meals={meals} />
+      <MealsList meals={meals} />
     </>
   );
 }

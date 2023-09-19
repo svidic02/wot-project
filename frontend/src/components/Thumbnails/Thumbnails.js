@@ -27,9 +27,9 @@ export default function Thumbnails({ foods }) {
               >
                 ☆
               </span> */}
-              <div className={classes.stars}>
+              {/* <div className={classes.stars}>
                 <StarRating stars={food.stars} />
-              </div>
+              </div> */}
               <div className={classes.product_item_footer}>
                 <div className={classes.cook_time}>
                   <span>🕒</span>

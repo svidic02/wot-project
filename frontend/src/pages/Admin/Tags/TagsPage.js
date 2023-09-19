@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { getAllTags } from "../../../services/foodService";
-import TagsMealsList from "../../../components/TagsMealsList/TagsMealsList";
+import TagsList from "../../../components/TagsList/TagsList";
 
 export default function TagsPage() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [tags, setTags] = useState([]);
+  // const [filteredTags, setFilteredTags] = useState(tags);
 
   useEffect(() => {
     if (user && user.isAdmin) {
@@ -21,13 +22,10 @@ export default function TagsPage() {
     } else {
       navigate("/");
     }
+
+    // setFilteredTags(tags.filter((tag) => tag.name !== "All"));
   }, [user, navigate]);
 
-  const { filteredTags } = tags.filter((tag) => tag.name !== "All");
-
-  return (
-    <>
-      <TagsMealsList tags={tags} />
-    </>
-  );
+  return <TagsList tags={tags} />;
+  // <>{filteredTags && <TagsList tags={tags} />}</>;
 }

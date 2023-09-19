@@ -7,7 +7,7 @@ import { useAuth } from "../../hooks/useAuth";
 export default function Header() {
   const { user, logout } = useAuth();
   const { cart } = useCart();
-  const navigate = useNavigate();
+
 
   return (
     <header className={classes.header}>
@@ -28,19 +28,19 @@ export default function Header() {
         <div className={classes.optionsWrapper}>
           <nav>
             <ul>
-              {(user && user.isAdmin) ? (
+              {user && user.isAdmin ? (
                 <>
                   <li>
                     <Link to={"/users"}>Users</Link>
-                  </li>
-                  <li>
-                    <Link to={"/orders"}>Orders</Link>
                   </li>
                   <li>
                     <Link to={"/meals"}>Meals</Link>
                   </li>
                   <li>
                     <Link to={"/tags"}>Tags</Link>
+                  </li>
+                  <li>
+                    <Link to={"/orders"}>Orders</Link>
                   </li>
                   <li className={classes.menu_container}>
                     <Link to="/profile">{user.name}</Link>
