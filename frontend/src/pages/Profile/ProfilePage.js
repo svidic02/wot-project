@@ -3,12 +3,10 @@ import { useAuth } from "../../hooks/useAuth";
 import Title from "../../components/Title/Title";
 import classes from "./profilePage.module.css";
 import { useNavigate } from "react-router-dom";
-import { useLoading } from "../../hooks/useLoading";
 
 export default function ProfilePage() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { showLoading, hideLoading } = useLoading();
 
   useEffect(() => {
     if (user) return;

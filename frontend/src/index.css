@@ -1,17 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
+[theme="dark"] {
+  --background: #292929;
+  --text_color: #fefefe;
+  --link_color: #985eff;
+  /* --highlight_background:#6e6e6e; */
+}
+
+[theme="light"] {
+  --background: #fafafa;
+  --text_color: black;
+  --link_color: rgb(85, 85, 203);
+  /* --highlight_background:#adadad; */
+}
+
 * {
   box-sizing: border-box;
+  transition: all ease-in .25s;
 }
 
 html {
   font-size: 18;
 }
+
 body {
   margin: 0;
   font-family: Quicksand, sans-serif;
-  /* background-color:  */
+  /* background-color:var(--background); */
 }
+
 a {
   text-decoration: none;
+}
+
+/* appjs */
+
+#siteWrapper{
+  background-color: var(--background);
 }

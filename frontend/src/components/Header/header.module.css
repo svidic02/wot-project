@@ -1,8 +1,7 @@
 .header {
-  background: white;
+  background-color: var(--background);
   padding: 0;
   border-bottom: 2px solid #e17e4d83;
-  /* 80D261 */
 }
 
 .header a {
@@ -31,8 +30,6 @@
 .title {
   font-weight: bold;
   padding: 1rem;
-}
-.titleWrapper {
 }
 
 .logoImg {
@@ -86,7 +83,20 @@
   font-size: 0.9rem;
   margin-left: 8%;
 }
+
 .header li {
   list-style-type: none;
   transition: all 0.1s;
 }
+
+.themeWrapper{
+  display: flex;
+  align-items: center;  
+}
+
+.themeWrapper label{
+  margin: 10px;
+  color: var(--text_color);
+}
+
+

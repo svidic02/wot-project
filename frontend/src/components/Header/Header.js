@@ -1,13 +1,14 @@
 import React from "react";
 import classes from "./header.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import { useAuth } from "../../hooks/useAuth";
+import ReactSwitch from "react-switch";
+// import Theme from "../../Theme/Theme";
 
-export default function Header() {
+export default function Header({ toggle }) {
   const { user, logout } = useAuth();
   const { cart } = useCart();
-
 
   return (
     <header className={classes.header}>
@@ -17,6 +18,7 @@ export default function Header() {
             PurePlate Bistro
           </Link>
         </div>
+        <div className={classes.themeWrapper}>{toggle}</div>
         <div className={classes.imgWrapper}>
           <img
             className={classes.logoImg}
