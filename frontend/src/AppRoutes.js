@@ -88,7 +88,7 @@ export default function AppRoutes() {
         }
       />
       <Route
-        path="/addMeal"
+        path="/meal/add"
         element={
           <AdminRoute>
             <MealInfo add={true}/>
