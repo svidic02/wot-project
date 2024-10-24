@@ -1,10 +1,10 @@
 import React from "react";
 import UserInput from "../../../components/UserInput/UserInput";
 
-export default function UserInfo({ shouldEdit }) {
+export default function UserInfo({ flag }) {
   return (
     <>
-      <UserInput edit={shouldEdit} />
+      <UserInput flag={flag} />
     </>
   );
 }

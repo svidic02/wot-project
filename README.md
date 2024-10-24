@@ -19,51 +19,53 @@ This project is a web application for managing users, orders, foods, and tags. B
 
 ### Users Management
 #### Implemented:
-- Admins can see all users ✅
-- Admins can delete users ✅
-- Admins can edit users ✅
+- Admins can see all users 
+- Admins can delete users 
+- Admins can edit users 
 
 #### To-Do:
-- Admins can add users ❌
+- Admins can add users
 
 ### Foods Management
 #### Implemented:
-- Admins can see all meals ✅
-- Admins can add foods ✅
-- Admins can remove foods ✅
-- Admins can edit foods ✅
+- Admins can see all meals 
+- Admins can add foods 
+- Admins can remove foods 
+- Admins can edit foods 
 
 ### Orders Management
 #### Implemented:
-- Admins can see all orders ✅
+- Admins can see all orders 
 
 ### Tags Management
 #### Implemented:
-- Admins can see all tags ✅
+- Admins can see all tags 
 
 #### To-Do:
-- Admins can add tags ❌
-- Admins can remove tags ❌
-- Admins can edit tags ❌
+- Admins can add tags 
+- Admins can remove tags 
+- Admins can edit tags 
 
 ## User Features
 
 ### To-Do:
-- Users can see all the orders they made ❌
-- Users can rate foods ❌
-- Users can track their orders ❌
+- Users can see all the orders they made 
+- Users can rate foods 
+- Users can track their orders
+- Users can star foods
+- Users Orders history 
 
 ## Global Features
 
 ### Implemented:
-- Dark mode ✅
-- Handle exceptions (empty cart, not logged in, etc.) ✅
+- Dark mode 
+- Handle exceptions (empty cart, not logged in, etc.) 
 
 ### To-Do:
-- Upload profile pictures ❌
-- More detailed description for foods when viewing the FoodPage ❌
-- Redesign all foods (images, descriptions, ratings, tags) ❌
-- Redesign UI ❌
+- Upload profile pictures 
+- More detailed description for foods when viewing the FoodPage 
+- Redesign all foods (images, descriptions, ratings, tags) 
+- Redesign UI 
 
 ## Installation
 

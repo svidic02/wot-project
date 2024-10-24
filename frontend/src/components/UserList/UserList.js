@@ -29,6 +29,7 @@ export default function UserList({ users }) {
       toast.error("User with id:" + userToDelete._id + " couldnt be deleted!");
     }
   };
+
   const dialogCanceled = () => {
     setDialog(false);
   };
@@ -37,11 +38,17 @@ export default function UserList({ users }) {
     navigate(`/user/${user._id}`);
   };
 
+  const handleAdd = () =>{
+    navigate(`/user/add`);
+  }
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.headerWrapper}>
         <Title title="Users" className={classes.title} />
       </div>
+      <Button text="Add" onClick={handleAdd} />
+      <p className={classes.numberOf}>Total Users: {users.length}</p>
       <div className={classes.itemsWrapper}>
         {users.map((user) => (
           <div key={user._id} className={classes.items}>
@@ -73,7 +80,6 @@ export default function UserList({ users }) {
 }
 function extractDate(timestamp) {
   const dateObj = new Date(timestamp);
-
   const year = dateObj.getFullYear();
   const month = dateObj.getMonth() + 1; // Months are 0-indexed, so add 1
   const day = dateObj.getDate();

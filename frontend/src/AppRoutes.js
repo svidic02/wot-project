@@ -65,9 +65,19 @@ export default function AppRoutes() {
         path="/user/:id"
         element={
           <AdminRoute>
-            <UserInfo />
+            <UserInfo flag={false}/>
           </AdminRoute>
         }
+        // true is for add, false is for edit
+      />
+      <Route
+        path="/user/add"
+        element={
+          <AdminRoute>
+            <UserInfo flag={true}/>
+          </AdminRoute>
+        }
+        // true is for add, false is for edit
       />
       <Route
         path="/meals/:id"

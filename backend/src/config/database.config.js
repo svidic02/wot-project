@@ -31,6 +31,7 @@ async function seedUsers() {
     return;
   }
 
+  // await UserModel.deleteMany({});
   for (let user of sample_users) {
     user.password = await bcrypt.hash(user.password, PASSWORD_HASH_SALT_ROUNDS);
     await UserModel.create(user);

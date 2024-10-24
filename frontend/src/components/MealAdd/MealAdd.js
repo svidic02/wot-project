@@ -1,25 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../Title/Title";
 import { useForm } from "react-hook-form";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
-import { addMeal } from "../../services/foodService";
+import { addMeal, getAllTags } from "../../services/foodService";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 export default function MealAdd() {
   const navigate = useNavigate();
-  
+  const [tags, setTags] = useState([]);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
+    setValue, // Added to set multiple selected values
   } = useForm();
 
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const result = await getAllTags();
+        setTags(result);
+      } catch (error) {
+        toast.error("Failed to load tags");
+      }
+    };
+    fetchTags();
+  }, []);
+
   const submit = async (data) => {
-    await addMeal(data);
-    toast.success("Food edited successfully!");
-    navigate("/meals");
+    try {
+      await addMeal(data);
+      toast.success("Food added successfully!");
+      navigate("/meals");
+    } catch (error) {
+      toast.error("Failed to add meal");
+    }
+  };
+
+  // Handle multiple selection
+  const handleTagChange = (event) => {
+    const options = event.target.options;
+    const selectedTags = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        selectedTags.push(options[i].value);
+      }
+    }
+    setValue("tags", selectedTags); // Update the form state with selected tags
   };
 
   return (
@@ -42,14 +72,24 @@ export default function MealAdd() {
           })}
           error={errors.price}
         />
-        <Input
-          type="text"
-          label="Tags"
+        {/* Dropdown for selecting multiple tags */}
+        <label htmlFor="tags">Tags</label>
+        <select
+          id="tags"
           {...register("tags", {
             required: true,
           })}
-          error={errors.tags}
-        />
+          multiple
+          onChange={handleTagChange} // Add onChange handler
+        >
+          {tags.map((tag, index) => (
+            <option key={index} value={tag.id}> {/* Use tag.id if it's an object */}
+              {tag.name} {/* Use tag.name for display */}
+            </option>
+          ))}
+        </select>
+        {errors.tags && <span>This field is required</span>}
+
         <Input
           type="text"
           label="Cook time in minutes"
