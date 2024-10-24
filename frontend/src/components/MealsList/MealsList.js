@@ -35,7 +35,7 @@ export default function MealsList({ meals }) {
     setDialog(false);
   };
   const handleAdd = () => {
-    navigate("/addMeal");
+    navigate("/meal/add");
   };
   return (
     <div className={classes.wrapper}>

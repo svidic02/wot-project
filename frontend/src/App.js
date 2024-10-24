@@ -7,6 +7,7 @@ import { useLoading } from "./hooks/useLoading";
 import { setLoadingInterceptor } from "./interceptors/loadingInterceptor";
 import { createContext, useEffect, useState } from "react";
 import classes from "./index.css";
+import Footer from "./components/Footer/Footer";
 
 export const ThemeContext = createContext(null);
 
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <AppRoutes />
+        <Footer/>
       </div>
     </ThemeContext.Provider>
   );

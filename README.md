@@ -22,8 +22,6 @@ This project is a web application for managing users, orders, foods, and tags. B
 - Admins can see all users 
 - Admins can delete users 
 - Admins can edit users 
-
-#### To-Do:
 - Admins can add users
 
 ### Foods Management
