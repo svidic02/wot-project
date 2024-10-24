@@ -7,6 +7,7 @@ export default function Button({
   color,
   backgroundColor,
   fontSize,
+  fontWeight,
   width,
   height,
 }) {
@@ -17,6 +18,7 @@ export default function Button({
           color,
           backgroundColor,
           fontSize,
+          fontWeight,
           width,
           height,
         }}
@@ -25,6 +27,7 @@ export default function Button({
       >
         {text}
       </button>
+      
     </div>
   );
 }
@@ -32,7 +35,7 @@ export default function Button({
 Button.defaultProps = {
   type: 'button',
   text: 'Submit',
-  backgroundColor: '#6488ea',
+  backgroundColor: '#e5201c',
   color: 'white',
   fontSize: '1.3rem',
   width: '12rem',

@@ -13,6 +13,9 @@ function Input(
     error,
     readOnly,
     defaultChecked,
+    fontSize,
+    fontWeight,
+    color,
   },
   ref
 ) {
@@ -43,6 +46,9 @@ function Input(
         onBlur={onBlur}
         readOnly={readOnly}
         defaultChecked={defaultChecked}
+        fontSize = {fontSize}
+        fontWeight = {fontWeight}
+        color = {color}
       />
       {error && <div className={classes.error}>{getErrorMessage()}</div>}
     </InputContainer>
