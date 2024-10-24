@@ -51,22 +51,41 @@ export default function CheckoutPage() {
     <>
       <form onSubmit={handleSubmit(submit)} className={classes.container}>
         <div className={classes.content}>
-          <Title title="Order Form" fontSize="1.6rem" />
+          <Title
+            title="Order"
+            fontSize="var(--h4-size)"
+            fontWeight="var(--h3-weight)"
+            color="var(--black100)"
+          />
           <div className={classes.inputs}>
-            <Input
-              defaultValue={user.name}
-              label="Name"
-              {...register("name")}
-              error={errors.name}
-            />
-            <Input
-              defaultValue={user.address}
-              label="Address"
-              {...register("address")}
-              error={errors.address}
+            <div className={classes.input_wrapper}>
+              <Input
+                defaultValue={user.name}
+                label="Name"
+                {...register("name")}
+                error={errors.name}
+              />
+            </div>
+            <div className={classes.input_wrapper}>
+              <Input
+                defaultValue={user.address}
+                label="Address"
+                {...register("address")}
+                error={errors.address}
+              />
+            </div>
+          </div>
+          <div className={classes.oil_wrapper}>
+            <OrderItemsList order={order} />
+            <Button
+              type="submit"
+              text="Create this order"
+              width="auto"
+              height="auto"
+              fontSize="var(--h4-size)"
+              fontWeight="800"
             />
           </div>
-          <OrderItemsList order={order} />
         </div>
         {/* <div>
           <Title title="Choose Your Location" fontSize="1.6rem" />
@@ -79,16 +98,11 @@ export default function CheckoutPage() {
           />
         </div> */}
 
-        <div className={classes.buttons_container}>
+        {/* <div className={classes.buttons_container}>
           <div className={classes.buttons}>
-            <Button
-              type="submit"
-              text="Go To Payment"
-              width="100%"
-              height="3rem"
-            />
+            
           </div>
-        </div>
+        </div> */}
       </form>
     </>
   );

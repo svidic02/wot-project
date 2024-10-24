@@ -1,21 +1,22 @@
 .container {
     position: relative;
-    margin-bottom: 0.5rem;
-    border-radius: 0.7rem;
-    padding-top: 0.3rem;
-    border: 1px solid #e0e0e0;
+    /* margin-bottom: 0.5rem; */
+    /* border-radius: 0.7rem; */
+    padding: 8px 8px;
+    border: 2px solid var(--black25);
+    width: 100%;
   }
   
   .label {
     display: inline-block;
-    margin-left: 0.5rem;
-    color: #5f5f5f;
-    font-size: 1rem;
+    /* margin-left: 0.5rem; */
+    color: var(--black75);
+    font-size: var(--h6-weight);
   }
   
   .content {
-    padding: 0 0.5rem;
-    height: 2.7rem;
+    /* padding: 0 0.5rem; */
+    /* height: 2.7rem; */
     display: flex;
     align-items: center;
   }

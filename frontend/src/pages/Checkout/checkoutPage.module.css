@@ -1,32 +1,48 @@
 .container {
-  margin-top: 1rem;
   display: flex;
-  margin: 0 0 6rem 2rem;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  margin-top: 32px;
 }
 
 .content {
-  width: 35rem;
-  margin: 0 3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  border: 2px solid var(--black50);
+  align-items: center;
 }
 
-.content,
+.input_wrapper{
+  display: flex;
+  align-items: start;
+}
+
 .inputs {
   display: flex;
   flex-direction: column;
+  padding: 0px 8px;
+  gap: 8px;
 }
 
 .inputs {
   width: 100%;
 }
 
-.buttons_container {
+.oil_wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 8px;
+}
+
+/* .buttons_container {
   flex-basis: 100%;
   display: flex;
   justify-content: center;
-}
-.buttons {
-  margin: 2rem;
-  width: 35rem;
+} */
+
+.oil_wrapper Button{
+  border-radius: 64px;
 }
