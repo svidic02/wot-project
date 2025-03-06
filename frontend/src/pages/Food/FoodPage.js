@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Price from "../../components/Price/Price";
-import StarRating from "../../components/StarRating/StarRating";
 import Tags from "../../components/Tags/Tags";
 import { getById } from "../../services/foodService";
 import classes from "./foodPage.module.css";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../../Hooks/useCart";
 import NotFound from "../../components/NotFound/NotFound";
 
 export default function FoodPage() {
