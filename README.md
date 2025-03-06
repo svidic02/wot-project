@@ -8,6 +8,7 @@ This project is a web application for managing users, orders, foods, and tags. B
 - [Installation](#installation)
   - [Frontend](#frontend)
   - [Backend](#backend)
+  - [Environment Variables](#environment-variables)
 - [Admin Features](#admin-features)
   - [Users Management](#admin-users-management)
   - [Foods Management](#admin-foods-management)
@@ -52,6 +53,14 @@ This project is a web application for managing users, orders, foods, and tags. B
    npm run dev
    ```
    - The backend runs on `http://localhost:5000`.
+
+### Environment Variables
+1. Createa .env file in the backend folder:
+   ```bash
+   MONGO_URI=
+   JWT_SECRET=
+   
+   ```
 
 ## Admin Features
 

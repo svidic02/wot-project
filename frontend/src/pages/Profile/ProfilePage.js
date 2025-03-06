@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../Hooks/useAuth";
 import Title from "../../components/Title/Title";
 import classes from "./profilePage.module.css";
 import { useNavigate } from "react-router-dom";
