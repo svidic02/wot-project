@@ -1,11 +1,10 @@
 import React from "react";
 import classes from "./cartPage.module.css";
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../../Hooks/useCart";
 import Title from "../../components/Title/Title";
 import { Link, useNavigate } from "react-router-dom";
 import Price from "../../components/Price/Price";
 import NotFound from "../../components/NotFound/NotFound";
-import { toast } from "react-toastify";
 
 export default function CartPage() {
   const { cart, removeFromCart, changeQuantity, clearCart } = useCart();

@@ -3,8 +3,8 @@ import classes from "./paymentPage.module.css";
 import { getNewOrderForCurrentUser } from "../../services/orderService";
 import Title from "../../components/Title/Title";
 import OrderItemsList from "../../components/OrderItemsList/OrderItemsList";
-import PayPalButtons from "../../components/PayPalButtons/PayPalButtons";
-import { useLoading } from "../../hooks/useLoading";
+import { useLoading } from "../../Hooks/useLoading";
+
 
 export default function PaymentPage() {
   const [order, setOrder] = useState();

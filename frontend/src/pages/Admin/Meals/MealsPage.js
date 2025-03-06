@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../../../hooks/useAuth";
+import { useAuth } from "../../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { getAll } from "../../../services/foodService";
 import MealsList from "../../../components/MealsList/MealsList";
