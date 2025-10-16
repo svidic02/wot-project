@@ -2,16 +2,6 @@ import { model, Schema } from "mongoose";
 import { OrderStatus } from "../constants/orderStatus.js";
 import { FoodModel } from "./food.model.js";
 
-// export const LatLngSchema = new Schema(
-//   {
-//     lat: { type: String, required: true },
-//     lng: { type: String, required: true },
-//   },
-//   {
-//     _id: false,
-//   }
-// );
-
 export const OrderItemSchema = new Schema(
   {
     food: { type: FoodModel.schema, required: true },
@@ -32,7 +22,6 @@ const orderSchema = new Schema(
   {
     name: { type: String, required: true },
     address: { type: String, required: true },
-    //place for map
     paymentId: { type: String },
     totalPrice: { type: Number, required: true },
     items: { type: [OrderItemSchema], required: true },
@@ -50,5 +39,4 @@ const orderSchema = new Schema(
   }
 );
 
-//addressLatLng: { type: LatLngSchema, required: true },
 export const OrderModel = model("order", orderSchema);

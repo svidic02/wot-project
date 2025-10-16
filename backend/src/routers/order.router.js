@@ -18,7 +18,6 @@ router.post(
     //   "ROUTER : JSON stringify-ed data that is save in order, which is acquired with req.body: " +
     //     JSON.stringify(order.name)
     // );
-    // res.send("ROUTER : Order without anything " + JSON.stringify(user));
 
     if (items.length <= 0) res.status(BAD_REQUEST).send("Cart Is Empty!");
 

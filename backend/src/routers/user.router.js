@@ -82,17 +82,22 @@ router.put(
       return res.status(400).send("Invalid user ID");
     }
 
-    const data = req.body; //checked-works
+    const data = req.body;
     const name = data.name;
     const email = data.email;
     const password = data.password;
     const address = data.address;
     const isAdmin = data.isAdmin;
 
+    const hashedPassword = await bcrypt.hash(
+      password,
+      PASSWORD_HASH_SALT_ROUNDS
+    );
+
     const updatedUser = {
       name,
-      email,
-      password,
+      email: email.toLowerCase(),
+      password: hashedPassword,
       address,
       isAdmin,
     };
@@ -121,7 +126,7 @@ router.delete(
     if (!result) {
       return res.status(400).send("User couldnt be deleted!");
     }
-    
+
     res.send(result);
   })
 );
