@@ -1,125 +1,74 @@
 # WOT-projekat
 
-This project is a web application for managing users, orders, foods, and tags. Below is an overview of implemented and planned features.
+A full-stack food ordering web application with separate admin and user interfaces.
 
-## Table of Contents
+## Tech Stack
 
-- [References](#references)
-- [Installation](#installation)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-  - [Environment Variables](#environment-variables)
-- [Admin Features](#admin-features)
-  - [Users Management](#admin-users-management)
-  - [Foods Management](#admin-foods-management)
-  - [Tags Management](#admin-tags-management)
-- [User Features](#user-features)
-- [Global Features](#global-features)
+**Frontend:** React, React Router, Axios, PayPal SDK, Leaflet Maps
+**Backend:** Node.js, Express, MongoDB (Mongoose), JWT Authentication
+**Security:** bcryptjs, JWT middleware, role-based access control
+
+## Quick Start
+
+### Prerequisites
+- Node.js (v14+)
+- MongoDB instance
+
+### Backend
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in the backend folder:
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+```
+
+Start the server:
+```bash
+npm run dev   # Runs on http://localhost:5000
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm start     # Runs on http://localhost:3000
+```
+
+## Features
+
+### Implemented ✅
+- **User Authentication:** Register, login, JWT-based auth with protected routes
+- **Browse & Order:** Search foods, filter by tags, shopping cart, checkout with map integration
+- **Payment:** PayPal integration for order processing
+- **Admin Panel:** Manage users, foods, orders, and view tags (protected routes)
+- **UI/UX:** Dark mode, loading states, toast notifications, responsive design
+- **Security:** Password hashing, JWT middleware, admin role verification
+
+### Planned 🚧
+- User order history page
+- Food rating and favorites system
+- Order tracking with status updates
+- User profile editing and picture uploads
+- Tag management (add/edit/delete)
+- Enhanced food descriptions and UI improvements
+
+## Documentation
+
+> **Note:** Detailed documentation is planned to be added in the `docs/` folder:
+> - `docs/getting-started.md` - Detailed installation and setup
+> - `docs/architecture.md` - System design and folder structure
+> - `docs/api-endpoints.md` - Complete API reference
+> - `docs/authentication.md` - JWT flow and middleware explanation
+> - `docs/admin-protection.md` - Security implementation details
 
 ## References
 
 - [CodeWithNasir - Admin Dashboard Tutorial](https://www.youtube.com/watch?v=H9Vp0G--u-Y&list=PLpaspowtqj-f9-5g2Rc1dWm1n2_nNfIl6&index=15&ab_channel=CodeWithNasir)
 
-## Installation
+## License
 
-### Frontend
-
-1. Navigate to the `frontend` folder:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the frontend server:
-   ```bash
-   npm start
-   ```
-   - The frontend runs on `http://localhost:3000`.
-
-### Backend
-
-1. Navigate to the `backend` folder:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the backend server:
-   ```bash
-   npm run dev
-   ```
-   - The backend runs on `http://localhost:5000`.
-
-### Environment Variables
-1. Createa .env file in the backend folder:
-   ```bash
-   MONGO_URI=
-   JWT_SECRET=
-   
-   ```
-
-## Admin Features
-
-### Users Management
-
-#### Implemented:
-
-- Admins can view all users
-- Admins can delete users
-- Admins can edit users
-- Admins can add users
-
-### Foods Management
-
-#### Implemented:
-
-- Admins can view all meals
-- Admins can add foods
-- Admins can remove foods
-- Admins can edit foods
-
-### Orders Management
-
-#### Implemented:
-
-- Admins can view all orders
-
-### Tags Management
-
-#### Implemented:
-
-- Admins can view all tags
-
-#### To-Do:
-
-- Admins can add tags
-- Admins can remove tags
-- Admins can edit tags
-
-## User Features
-
-### To-Do:
-
-- Users can view all the orders they have made
-- Users can rate foods
-- Users can track their orders
-- Users can star foods
-- Users can view their order history
-
-## Global Features
-
-### Implemented:
-
-- Dark mode
-- Exception handling (e.g., empty cart, not logged in)
-
-### To-Do:
-
-- Upload profile pictures
-- More detailed description for foods when viewing the FoodPage
-- Redesign all foods (images, descriptions, ratings, tags)
-- Redesign UI
+This project is for educational purposes.

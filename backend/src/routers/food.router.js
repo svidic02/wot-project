@@ -2,6 +2,8 @@ import { Router } from "express";
 import { FoodModel } from "../models/food.model.js";
 import handler from "express-async-handler";
 import mongoose from "mongoose";
+import authMid from "../middleware/auth.mid.js";
+import adminMid from "../middleware/admin.mid.js";
 
 const router = Router();
 
@@ -60,73 +62,79 @@ router.get(
   })
 );
 
-router.put(
-  "/:foodId",
-  handler(async (req, res) => {
-    const { foodId } = req.params;
-    const data = req.body;
-    const name = data.name;
-    const price = data.price;
-    const tags = data.tags;
-    const time = data.cookTime;
-    // res.send(name);
+// router.put(
+//   "/:foodId",
+//   authMid,
+//   adminMid,
+//   handler(async (req, res) => {
+//     const { foodId } = req.params;
+//     const data = req.body;
+//     const name = data.name;
+//     const price = data.price;
+//     const tags = data.tags;
+//     const time = data.cookTime;
+//     // res.send(name);
 
-    const updatedMeal = {
-      name,
-      price,
-      tags,
-      time,
-    };
+//     const updatedMeal = {
+//       name,
+//       price,
+//       tags,
+//       time,
+//     };
 
-    const meal = await FoodModel.findByIdAndUpdate(
-      { _id: foodId },
-      updatedMeal,
-      {
-        new: true,
-      }
-    );
+//     const meal = await FoodModel.findByIdAndUpdate(
+//       { _id: foodId },
+//       updatedMeal,
+//       {
+//         new: true,
+//       }
+//     );
 
-    if (!meal) {
-      return res.status(404).send("Meal not found");
-    }
+//     if (!meal) {
+//       return res.status(404).send("Meal not found");
+//     }
 
-    res.send(meal);
-  })
-);
+//     res.send(meal);
+//   })
+// );
 
-router.delete(
-  "/:foodId",
-  handler(async (req, res) => {
-    const { foodId } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(foodId)) {
-      return res.status(400).send("Invalid food ID");
-    }
-    const result = await FoodModel.findByIdAndDelete(foodId);
-    if (!result) {
-      return res.status(400).send("User couldnt be deleted!");
-    }
+// router.delete(
+//   "/:foodId",
+//   authMid,
+//   adminMid,
+//   handler(async (req, res) => {
+//     const { foodId } = req.params;
+//     if (!mongoose.Types.ObjectId.isValid(foodId)) {
+//       return res.status(400).send("Invalid food ID");
+//     }
+//     const result = await FoodModel.findByIdAndDelete(foodId);
+//     if (!result) {
+//       return res.status(400).send("User couldnt be deleted!");
+//     }
 
-    res.send(result);
-  })
-);
+//     res.send(result);
+//   })
+// );
 
-router.post(
-  "/addFood",
-  handler(async (req, res) => {
-    const { name, price, tags, cookTime, imageUrl } = req.body;
+// router.post(
+//   "/addFood",
+//   authMid,
+//   adminMid,
+//   handler(async (req, res) => {
+//     const { name, price, tags, cookTime, imageUrl } = req.body;
 
-    const newMeal = {
-      name,
-      cookTime,
-      price,
-      imageUrl,
-      tags,
-    };
+//     const newMeal = {
+//       name,
+//       cookTime,
+//       price,
+//       imageUrl,
+//       tags,
+//     };
 
-    const result = await FoodModel.create(newMeal);
+//     const result = await FoodModel.create(newMeal);
 
-    res.send(result);
-  })
-);
+//     res.send(result);
+//   })
+// );
 
 export default router;

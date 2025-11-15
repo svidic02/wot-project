@@ -16,7 +16,7 @@ axios.interceptors.request.use(
 
 axios.interceptors.request.use(
   (req) => {
-    if (req.url.includes("/api/orders/allOrders")) {
+    if (req.url.includes("/api/orders/")) {
       delete req.headers["access_token"];
     }
     return req;

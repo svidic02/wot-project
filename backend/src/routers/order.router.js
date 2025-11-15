@@ -7,6 +7,27 @@ import { OrderStatus } from "../constants/orderStatus.js";
 
 const router = Router();
 
+// router.get(
+//   "/",
+//   handler(async (req, res) => {
+//     const orders = await OrderModel.find();
+//     res.send(orders);
+//   })
+// );
+
+router.get(
+  "/newOrderForCurrentUser",
+  auth,
+  handler(async (req, res) => {
+    const order = await getNewOrderForCurrentUser(req);
+    if (order) res.send(order);
+    else {
+      res.send("This is order" + JSON.stringify(order));
+      res.status(BAD_REQUEST).send();
+    }
+  })
+);
+
 router.post(
   "/create",
   auth,
@@ -53,27 +74,6 @@ router.put(
     await order.save();
 
     res.send(order._id);
-  })
-);
-
-router.get(
-  "/newOrderForCurrentUser",
-  auth,
-  handler(async (req, res) => {
-    const order = await getNewOrderForCurrentUser(req);
-    if (order) res.send(order);
-    else {
-      res.send("This is order" + JSON.stringify(order));
-      res.status(BAD_REQUEST).send();
-    }
-  })
-);
-
-router.get(
-  "/",
-  handler(async (req, res) => {
-    const orders = await OrderModel.find();
-    res.send(orders);
   })
 );
 

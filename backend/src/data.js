@@ -78,7 +78,6 @@ export const sample_foods = [
   },
 ];
 
-
 export const sample_tags = [
   { name: "All", count: 6 },
   { name: "FastFood", count: 4 },
